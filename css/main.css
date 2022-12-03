@@ -4,7 +4,8 @@
 
 :root {
     --light-background: #E7ECEF;
-    --light-blue: #A3CEF1;
+    /* --light-blue: #A3CEF1; */
+    --light-blue: #6096BA;
     --medium-blue: #6096BA;
     --grey: #8B8C89;
     --dark-blue: #274C77;
