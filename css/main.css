@@ -1,0 +1,700 @@
+/* TODO Remove all borders */
+
+/* #region Common */
+
+:root {
+    --light-background: #E7ECEF;
+    --light-blue: #A3CEF1;
+    --medium-blue: #6096BA;
+    --grey: #8B8C89;
+    --dark-blue: #274C77;
+    /* Define font size variables based on browser
+        defaults to maintain compatibility across devices.
+        Cite: https://css-tricks.com/accessible-font-sizing-explained/*/
+    font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+    --font-small: 1.4rem; /* 14px */
+    --font-default: 1.6rem; /* 16px */
+    --font-large: 2rem; /* 20px */
+    --font-very-large: 2.4rem; /* 24px */
+    --font-extra-large: 3rem; /* 30px */
+}
+
+    /* Normalization is placed in the all selector as placing it
+        in the body selector odes not target all elements resulting
+        in an inconsistencies when developing a website */
+* {
+    box-sizing: border-box;
+    float: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: var(--font-default);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+/* Properties set here will be for all link states unless overridden
+    later through pseudo selectors which must be in the order
+    link, visited, focus, hover, active*/
+
+a {
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    /* text-decoration: underline; */
+}
+
+/* Skip link - initial position off screen */
+#skip-link {
+    display: block;
+    position: absolute;
+    left: -50em;
+    top: auto;
+    width: 0.1em;
+    height: 0.1em;
+    z-index: -999;
+}
+
+#skip-link:focus {
+    position: fixed;
+    left: 14rem;
+    top: 0.8em;
+    font-weight: bold;
+    width: auto;
+    height: auto;
+    color: #000;
+    background: #fff;
+    z-index: 999;
+}
+
+section {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    align-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+section:nth-of-type(odd){
+    background: var(--light-blue);
+}
+
+section:nth-of-type(even){
+    background-image: url(../images/section-background-image.jpg);
+    background-size: cover;
+}
+
+section > * {
+    flex: 0 0 100%;
+}
+
+section blockquote, #about article {
+    text-align: justify;
+}
+
+h1, h2, h3, h4, #contact legend {
+    font-weight: bold;
+}
+
+h1, h2 {
+    display: inline-block;
+}
+
+h3, h4 {
+    margin-bottom: 1em;
+}
+
+h1 {
+    position: relative;
+    top: 8.2em;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    margin: 1.5em 0;
+    color: var(--dark-blue);
+}
+
+h4 {
+    margin-top: 2em;
+}
+
+h2 img {
+    display: inline-block;
+    position: relative;
+    height: 1.3em;
+    top: 0.15em;
+    margin-right: 0.5em;
+}
+
+section img:not(h2 *) {
+    display: block;
+    max-width: 100%;
+}
+
+#services img:not(h2 *), #ourPeople img:not(h2 *) {
+    border-top: 0.05em solid var(--grey);
+    border-bottom: 0.05em solid var(--grey);
+}
+
+figcaption {
+    font-weight: bold;
+}
+
+/* Services and Our People sections */
+section:nth-child(-n+2) figcaption {
+    display: block;
+    padding: 1em 1em 2em 1em;
+    background: #fff;
+}
+
+/* #endregion Common */
+
+/* #region Nav */
+
+nav div {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4rem;
+    background: #fff;
+    z-index: 100;
+    padding: 0.1rem 1rem;
+}
+
+/* This is required to offset the scroll when a
+ menu link is clicked dues to the fixed header */
+html {
+    scroll-padding-top: 4rem;
+}
+
+nav div a {
+    display: block;
+    width: 12rem;
+    height: 100%;
+}
+
+nav div a:hover {
+    box-shadow: 0 0.1em 0 0 var(--dark-blue);
+}
+
+/* logo */
+nav div a img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+nav div a p {
+    font-size: 0;
+    color: transparent;
+}
+
+/* Hide menu button by default */
+nav button {
+    display: none;
+}
+
+nav ul {
+    margin-top: 2.5em;
+}
+
+nav ul li {
+    width: 100%;
+    list-style-type: none;
+    padding: 0.3em;
+    background: var(--dark-blue);
+}
+
+nav ul li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5em;
+    width: 100%;
+}
+
+/* link, visited, focus, hover, active */
+
+nav ul li a:hover {
+    background: var(--medium-blue);
+}
+
+nav ul li a:active {
+    color: var(--dark-blue);
+    background: #fff;
+}
+
+/* Show menu button if JavaScript has loaded */
+.js #menu-button {
+    display: block;
+    position: relative;
+    right: 0;
+    top: 0;
+    color: transparent;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    background: url("../images/menu.svg");
+    background-size: cover;
+    border: none;
+    font-size: 0;
+}
+
+/* Initially hide menu links if JavaScript has loaded */
+.js nav ul {
+    display: none;
+}
+
+nav ul.menu-open {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 10em;
+    z-index: 10;
+}
+
+/* #endregion Nav */
+
+/* #region Header */
+
+header {
+    background-image: url(../images/header-background-image.jpg);
+    height: 10em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-bottom: 2em solid #fff;
+    z-index: 5;
+}
+
+.js header {
+    margin-top: 2.5em;
+}
+
+header img:last-of-type {
+    display: none;
+}
+
+h1 br {
+    display: none;
+}
+
+/* #endregion header */
+
+/* #region Services */
+
+#services p {
+    margin-bottom: 1.5em;
+}
+
+/* #endregion Services */
+
+/* #region About */
+
+#about article {
+    max-width: 60ch;
+    padding: 2em 1em;
+}
+
+/* #endregion About */
+
+/* #region Testimonials */
+
+#testimonials figure {
+    margin-bottom: 2.5em;
+}
+
+#testimonials blockquote {
+    max-width: 60ch;
+    padding: 0 1em 1em 1em;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+/* #endregion Testimonials */
+
+/* #region Contact */
+
+#contact {
+    padding-bottom: 4em;
+    justify-content: center;
+    align-content: center;
+}
+
+#contact form, #contact article{
+    max-width: 30em;
+}
+
+#contact hr {
+    margin: 2em auto;
+    max-width: 40em;
+}
+
+#contact fieldset {
+    padding: 1em;
+    text-align: left;
+    border: none;
+}
+
+#contact legend {
+    padding: 0 0.5em;
+}
+
+#contact label {
+    display: block;
+    max-width: 97%;
+    margin-bottom: 1.5em;
+}
+
+#contact input:not([type=checkbox]), #contact textarea {
+    display: block;
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 0.25em;
+    border: 0.1em solid var(--grey);
+}
+
+#contact input[type=checkbox] {
+    margin: 0 0.5em;
+    transform: scale(1.4);
+}
+
+#contact textarea {
+    min-height: 6em;
+    max-height: 20em;
+    resize: vertical;
+}
+
+#contact button {
+    display: block;
+    width: 10em;
+    height: 2.5em;
+    margin: 0 auto 0.75em auto;
+    border: 0.15em solid var(--grey);
+    border-radius: 2.5em;
+    color: #000;
+    background-color: #fff;
+}
+
+#contact article img {
+    margin-bottom: 1.5em;
+}
+
+/* Location map */
+#contact article:first-of-type p {
+    text-align: right;
+    margin-right: 1em;
+}
+
+/* Contact details */
+#contact article:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 40em;
+}
+
+#contact article:last-of-type > * {
+    width: 100%;
+}
+
+#contact article:first-of-type a {
+    color: var(--dark-blue);
+    text-decoration: none;
+    box-shadow: 0 0.1em 0 0 var(--dark-blue);
+}
+
+#contact article:first-of-type a:hover {
+    background-color: var(--light-background);
+}
+
+/* #endregion Contact */
+
+/* #region Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    background: var(--dark-blue);
+    padding: 0.2em 0;
+}
+
+footer p {
+    font-size: var(--font-small);
+}
+
+/* #endregion Footer */
+
+/* #region Media queries */
+
+/* 600px */
+@media all and (min-width: 37.5em) {
+
+    header {
+        height: 15em;
+        border: none;
+    }
+
+    h1 {
+        display: inline;
+        position: relative;
+        left: calc(30% - 9.5em);
+        top: 6em;
+        font-size: var(--font-default);
+        z-index: 25;
+    }
+
+    h1 br {
+        display: inline;
+    }
+
+    section {
+        margin: 0 auto;
+        padding: 0 10% 2em 10%;
+    }
+
+    #ourPeople figure {
+        flex: 0 0 calc(50%);
+        padding: 0.3em;
+    }
+
+    #ourPeople img:not(h2 *) {
+        border: none;
+    }
+
+    #contact fieldset {
+        padding: 1em 0;
+    }
+}
+
+/* 800px */
+@media all and (min-width: 50em) {
+
+    #services figure {
+        display: flex;
+        align-items: center;
+        padding: 1.5em 0;
+    }
+
+    #services img:not(h2 *) {
+        width: 50%;
+        border: none;
+    }
+
+    #services figcaption {
+        display: inline;
+        margin-left: 1.5em;
+        background: none;
+    }
+
+    #services blockquote {
+        margin-top: 1em;
+    }
+
+    #ourPeople figure {
+        flex: 0 0 calc(33.3%);
+    }
+
+    #about {
+        align-items: center;
+    }
+
+    #about aside {
+        flex: 0 0 calc(50% - 2em);
+        margin-right: 2em;
+    }link
+
+    #about article {
+        flex: 0 0 calc(50%);
+    }
+
+    footer {
+        padding: 1em 0;
+    }
+
+    footer p {
+        font-size: var(--font-default);
+    }
+}
+
+/* 1000px */
+@media all and (min-width: 62.5em) {
+
+    #skip-link:focus {
+        left: 25rem;
+        top: 2rem;
+    }
+
+    nav button {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        position: fixed;
+        justify-content: space-between;
+        align-items: center;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 6rem;
+        background: #fff;
+        z-index: 100;
+        padding: 0.1rem 1rem;
+    }
+
+    /* This is required to offset the scroll when a
+    menu link is clicked dues to the fixed header */
+    html {
+        scroll-padding-top: 6rem;
+    }
+
+    nav div {
+        display: block;
+        flex: 0 0 20rem;
+        position: relative;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav div a {
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        width: 60%;
+        margin: 0;
+        background-color: white;
+    }
+
+    nav ul li {
+        background: #fff;
+    }
+
+    nav ul li a {
+        color: var(--dark-blue);
+        background: #fff;
+        font-weight: bold;
+    }
+
+    nav ul li a:hover {
+        color: #fff;
+        background: var(--dark-blue);
+    }
+
+
+    nav ul li a:active {
+        color: #fff;
+        background: var(--medium-blue);
+    }
+
+    header {
+        margin-top: 4em;
+        height: 25em;;
+    }
+
+    h1 {
+        left: calc(30% - 9em);
+        top: 5em;
+        font-size: var(--font-extra-large);
+    }
+
+    h2 {
+        font-size: var(--font-very-large);
+    }
+
+    h1 br {
+        display: inline;
+    }
+}
+
+/* 1200px */
+@media all and (min-width: 75em) {
+
+    #services figure {
+        flex: 0 0 calc(50% - 2em);
+        margin: 0 2em 2em 0;
+        padding: 0.3em;
+    }
+
+    #ourPeople figure {
+        flex: 0 0 calc(25%);
+    }
+
+    #about aside {
+        flex: 0 0 calc(30% - 2em);
+        margin-left: auto;
+        margin-right: 2em;
+    }
+
+    #about article {
+        flex: 0 0 calc(60%);
+        margin-right: auto;
+    }
+
+    #contact {
+        justify-content: center;
+    }
+
+    #contact form, #contact article:first-of-type {
+        flex: 0 0 calc(40% - 4em);
+    }
+
+    #contact form {
+        flex: 0 1.5 calc(40% - 4em);
+    }
+
+    #contact article:last-of-type {
+        flex: 1 0 calc(20% - 4em);
+    }
+
+    #contact hr {
+        margin: 0;
+        padding: 0;
+        flex: 0 0 0.1em;
+        margin: 2em;
+    }
+
+    #contact article h3 {
+        margin-top: 0;
+    }
+
+    #contact article:last-of-type {
+        align-content: flex-start;
+    }
+
+    #contact article:last-of-type p,
+    #contact article:last-of-type h4 {
+        text-align: left;
+    }
+}
+
+/* #endregion Media queries */
