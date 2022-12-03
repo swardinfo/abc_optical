@@ -447,8 +447,8 @@ footer p {
 
 /* #region Media queries */
 
-/* 600px */
-@media all and (min-width: 37.5em) {
+/* 600px 37.5em */
+@media all and (min-width: 600px) {
 
     header {
         height: 15em;
@@ -487,8 +487,8 @@ footer p {
     }
 }
 
-/* 800px */
-@media all and (min-width: 50em) {
+/* 800px 50em*/
+@media all and (min-width: 800px) {
 
     #services figure {
         display: flex;
@@ -537,8 +537,8 @@ footer p {
     }
 }
 
-/* 1000px */
-@media all and (min-width: 62.5em) {
+/* 1000px 62.5em */
+@media all and (min-width: 1000px) {
 
     #skip-link:focus {
         left: 25rem;
@@ -636,8 +636,8 @@ footer p {
     }
 }
 
-/* 1200px */
-@media all and (min-width: 75em) {
+/* 1200px 75em */
+@media all and (min-width: 1200px) {
 
     #services figure {
         flex: 0 0 calc(50% - 2em);
