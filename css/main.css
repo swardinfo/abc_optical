@@ -62,6 +62,7 @@
 a {
     color: var(--dark-blue);
     text-decoration: none;
+    font-size: var(--font-default);
 }
 
 a:hover {
@@ -145,17 +146,17 @@ h1, h2, h3, h4, figcaption, legend{
 
 h1, h2 {
     display: inline-block;
-    font-size: var(--font-large);
     color: var(--dark-blue);
 }
 
 h3, h4 {
     margin-bottom: 1rem;
+    font-size: var(--font-default);
 }
 
 h1 {
     position: relative;
-    top: 11.2rem;
+    top: 10rem;
     width: 100%;
     font-size: var(--font-very-large);
     text-align: center;
@@ -163,6 +164,7 @@ h1 {
 
 h2 {
     margin: 1.5rem 0;
+    font-size: var(--font-large);
 }
 
 h4 {
@@ -325,7 +327,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    border-bottom: 5rem solid #fff;
+    border-bottom: 8rem solid #fff;
     z-index: 5;
 }
 
