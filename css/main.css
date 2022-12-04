@@ -449,7 +449,7 @@ footer p {
 /* #region Media queries */
 
 /* 600px 37.5em */
-@media all and (min-width: 600px) {
+/* @media all and (min-width: 600px) {
 
     header {
         height: 15em;
@@ -486,10 +486,10 @@ footer p {
     #contact fieldset {
         padding: 1em 0;
     }
-}
+} */
 
 /* 800px 50em*/
-@media all and (min-width: 800px) {
+/* @media all and (min-width: 800px) {
 
     #services figure {
         display: flex;
@@ -536,7 +536,7 @@ footer p {
     footer p {
         font-size: var(--font-default);
     }
-}
+} */
 
 /* 1000px 62.5em */
 @media all and (min-width: 1000px) {
