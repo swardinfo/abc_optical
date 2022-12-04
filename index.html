@@ -20,6 +20,9 @@
 
         <!-- #region Nav -->
         <nav role="navigation">
+            <!-- Div required so that fixed heading can be styled without contents below scrolling
+                over it. Home logo link can't take up 100% width here as space is required
+                for skip link. A semantic tag would be wrong here as this is purely for styling. -->
             <div>
                 <a href="index.html"><img src="./images/logo.svg" alt=""><p>Home</p></a>
                 <!-- Hamburger menu button, hidden unless both CSS and JavaScript present -->
@@ -31,7 +34,7 @@
                 <li><a href="#ourPeople">Our people</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <!-- #endregion Nav -->
@@ -49,8 +52,7 @@
             <!-- #region Services -->
             <!-- Color background -->
             <section id="services" aria-labelledby="servicesSectionLabel">
-                <h2 id="servicesSectionLabel"><img src="./images/services-icon.svg" alt="">Our services</h2>
-                <p>We have a range of services to meet all your family's needs.</p>
+                <h2 id="servicesSectionLabel"><img src="./images/services-icon.svg" alt="">Services</h2>
                 <figure>
                     <img src="./images/glasses-display-wall.jpg" alt="">
                     <figcaption>
@@ -117,7 +119,7 @@
             <!-- Image background -->
             <section id="ourPeople" aria-labelledby="ourPeopleSectionLabel">
                 <h2 id="ourPeopleSectionLabel"><img src="./images/our-people-icon.svg" alt="">
-                    Meet our people.</h2>
+                    Our people</h2>
                 <figure>
                     <img src="./images/manager.jpg" alt="">
                     <figcaption>Amber White<p>Manager</p></figcaption>
@@ -148,7 +150,7 @@
             <!-- #region About -->
             <!-- Color background -->
             <section id="about" aria-labelledby="aboutUsSectionLabel">
-                <h2 id="aboutUsSectionLabel"><img src="./images/about-icon.svg" alt="">Our story</h2>
+                <h2 id="aboutUsSectionLabel"><img src="./images/about-icon.svg" alt="">About</h2>
                 <aside>
                     <img src="./images/woman-opening-door.jpg" alt="woman in a nurses uniform opening the front door to the store">
                 </aside>
@@ -165,7 +167,7 @@
             <!-- #region Testimonials -->
             <!-- Image background -->
             <section id="testimonials" aria-labelledby="testimonialsSectionLabel">
-                <h2 id="testimonialsSectionLabel"><img src="./images/testimonials-icon.svg" alt="">Hear what our customers have to say</h2>
+                <h2 id="testimonialsSectionLabel"><img src="./images/testimonials-icon.svg" alt="">Testimonials</h2>
                 <figure>
                     <blockquote>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, sit quos cum sapiente eos sunt
@@ -193,7 +195,7 @@
             <!-- #region Contact -->
             <!-- Color background -->
             <section id="contact" aria-labelledby="contactSectionLabel">
-                <h2 id="contactSectionLabel"><img src="./images/contact-icon.svg" alt="">Contact information</h2>
+                <h2 id="contactSectionLabel"><img src="./images/contact-icon.svg" alt="">Contact</h2>
                 <form>
                     <h3>Contact us ...</h3>
                     <fieldset>
@@ -224,28 +226,37 @@
                 <hr>
                 <article>
                     <h3>Find us on the map</h3>
-                    <img src="./images/location-map.jpg" alt="a map showing location of the store">
-                    <!-- Required by Open Street Map, attribution and link to license -->
-                    <p>Map data from
-                        <a href="https://www.openstreetmap.org/copyright"
-                        rel="external nofollow noopener noreferrer" target="_blank">OpenStreetMap</a>
-                    </p>
+                    <figure>
+                        <img src="./images/location-map.jpg" alt="a map showing location of the store">
+                        <!-- Required by Open Street Map, attribution and link to license -->
+                        <figcaption>Map data from
+                            <a href="https://www.openstreetmap.org/copyright"
+                            rel="external nofollow noopener noreferrer" target="_blank">OpenStreetMap</a>
+                        </figcaption>
+                    </figure>
                 </article>
                 <hr>
                 <article>
                     <h3>Contact details</h3>
-                    <p>Shop 6</p>
-                    <p>The Meyer Centre</p>
-                    <p>Queen Street Mall</p>
-                    <p>91 Queen Street, Brisbane</p>
-                    <p>Queensland, 4000</p>
-                    <h4>Phone</h4>
-                    <p>07 3256 7101</p>
-                    <h4>Our trading hours:</h4>
-                    <p>Mon - Thurs: 9am - 5:30pm</p>
-                    <p>Fri: 9am - 9pm</p>
-                    <p>Sat: 9am - 5pm</p>
-                    <p>Sun: 10am - 5pm</p>
+                    <article>
+                        <h4>Address</h4>
+                        <p>Shop 6</p>
+                        <p>The Meyer Centre</p>
+                        <p>Queen Street Mall</p>
+                        <p>91 Queen Street, Brisbane</p>
+                        <p>Queensland, 4000</p>
+                    </article>
+                    <article>
+                        <h4>Phone</h4>
+                        <p>07 3256 7101</p>
+                    </article>
+                    <article>
+                        <h4>Our trading hours:</h4>
+                        <p>Mon - Thurs: 9am - 5:30pm</p>
+                        <p>Fri: 9am - 9pm</p>
+                        <p>Sat: 9am - 5pm</p>
+                        <p>Sun: 10am - 5pm</p>
+                    </article>
                 </article>
             </section>
             <!-- #endregion Contact details -->

@@ -4,8 +4,7 @@
 
 :root {
     --light-background: #E7ECEF;
-    /* --light-blue: #A3CEF1; */
-    --light-blue: #6096BA;
+    --light-blue: #A3CEF1;
     --medium-blue: #6096BA;
     --grey: #8B8C89;
     --dark-blue: #274C77;
@@ -20,9 +19,9 @@
     --font-extra-large: 3rem; /* 30px */
 }
 
-    /* Normalization is placed in the all selector as placing it
-        in the body selector odes not target all elements resulting
-        in an inconsistencies when developing a website */
+/* Normalization is placed in the all selector as placing it
+    in the body selector odes not target all elements resulting
+    in an inconsistencies when developing a website */
 * {
     box-sizing: border-box;
     float: none;
@@ -60,8 +59,8 @@ a:hover {
 
 #skip-link:focus {
     position: fixed;
-    left: 14rem;
-    top: 0.8em;
+    left: 2em;
+    top: 5em;
     font-weight: bold;
     width: auto;
     height: auto;
@@ -74,6 +73,7 @@ section {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
+    justify-content: center;
     align-content: flex-start;
     min-height: 100vh;
     width: 100%;
@@ -93,16 +93,38 @@ section > * {
     flex: 0 0 100%;
 }
 
+section figure, #contact article {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
+section *:not(form *) {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
 section blockquote, #about article {
+    max-width: 60ch;
+}
+
+section blockquote, #about article p {
     text-align: justify;
 }
 
-h1, h2, h3, h4, #contact legend {
+#services blockquote {
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, figcaption, legend{
     font-weight: bold;
 }
 
 h1, h2 {
     display: inline-block;
+    font-size: var(--font-large);
+    color: var(--dark-blue);
 }
 
 h3, h4 {
@@ -111,14 +133,14 @@ h3, h4 {
 
 h1 {
     position: relative;
-    top: 8.2em;
+    top: 8.8em;
     width: 100%;
+    font-size: var(--font-very-large);
     text-align: center;
 }
 
 h2 {
     margin: 1.5em 0;
-    color: var(--dark-blue);
 }
 
 h4 {
@@ -128,23 +150,16 @@ h4 {
 h2 img {
     display: inline-block;
     position: relative;
-    height: 1.3em;
-    top: 0.15em;
-    margin-right: 0.5em;
+    height: 2em;
 }
 
 section img:not(h2 *) {
     display: block;
-    max-width: 100%;
 }
 
 #services img:not(h2 *), #ourPeople img:not(h2 *) {
     border-top: 0.05em solid var(--grey);
     border-bottom: 0.05em solid var(--grey);
-}
-
-figcaption {
-    font-weight: bold;
 }
 
 /* Services and Our People sections */
@@ -168,49 +183,74 @@ nav div {
     left: 0;
     top: 0;
     width: 100%;
-    height: 4rem;
+    height: 4em;
     background: #fff;
     z-index: 100;
-    padding: 0.1rem 1rem;
+    padding: 0.1em 1em;
 }
 
 /* This is required to offset the scroll when a
  menu link is clicked dues to the fixed header */
 html {
-    scroll-padding-top: 4rem;
+    scroll-padding-top: 4em;
 }
 
+/* Home logo link */
 nav div a {
     display: block;
-    width: 12rem;
+    width: 12em;
     height: 100%;
 }
 
-nav div a:hover {
-    box-shadow: 0 0.1em 0 0 var(--dark-blue);
+/* Home logo link hover underline */
+nav div a:hover::after {
+    display: block;
+    content: "";
+    position: relative;
+    left: 0;
+    top: -0.7em;
+    width: 100%;
+    height: 0.1em;
+    background: var(--dark-blue);
+    z-index: 500;
 }
 
-/* logo */
+/* Logo */
 nav div a img {
     display: block;
     width: 100%;
     height: 100%;
 }
 
+/* Font size set to 0 so as not to change focus ring */
+/* Make 'Home' text invisible but still accessible to screen readers */
 nav div a p {
     font-size: 0;
     color: transparent;
 }
 
-/* Hide menu button by default */
-nav button {
-    display: none;
+/* Show menu button if JavaScript has loaded and is enabled */
+/* Font size is 0 so as not to change focus area. This means
+    width has to use rem for as em's has no reference */
+.js #menu-button {
+    display: block;
+    position: relative;
+    color: transparent;
+    width: 4.5rem;
+    height: 4.5rem;
+    overflow: hidden;
+    background: url("../images/menu.svg");
+    background-size: cover;
+    border: none;
+    font-size: 0;
+    z-index: 999;
 }
 
 nav ul {
-    margin-top: 2.5em;
+    margin-top: 4em;
 }
 
+/* Nav link style when JavaScript unavailable */
 nav ul li {
     width: 100%;
     list-style-type: none;
@@ -238,27 +278,12 @@ nav ul li a:active {
     background: #fff;
 }
 
-/* Show menu button if JavaScript has loaded */
-.js #menu-button {
-    display: block;
-    position: relative;
-    right: 0;
-    top: 0;
-    color: transparent;
-    width: 3rem;
-    height: 3rem;
-    overflow: hidden;
-    background: url("../images/menu.svg");
-    background-size: cover;
-    border: none;
-    font-size: 0;
-}
-
 /* Initially hide menu links if JavaScript has loaded */
 .js nav ul {
     display: none;
 }
 
+/* Menu opened by menu button when JavaScrip is loaded */
 nav ul.menu-open {
     display: block;
     position: fixed;
@@ -274,24 +299,16 @@ nav ul.menu-open {
 
 header {
     background-image: url(../images/header-background-image.jpg);
-    height: 10em;
+    height: 18em;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    border-bottom: 2em solid #fff;
+    border-bottom: 5em solid #fff;
     z-index: 5;
 }
 
 .js header {
-    margin-top: 2.5em;
-}
-
-header img:last-of-type {
-    display: none;
-}
-
-h1 br {
-    display: none;
+    margin-top: 4em;
 }
 
 /* #endregion header */
@@ -307,7 +324,6 @@ h1 br {
 /* #region About */
 
 #about article {
-    max-width: 60ch;
     padding: 2em 1em;
 }
 
@@ -320,7 +336,6 @@ h1 br {
 }
 
 #testimonials blockquote {
-    max-width: 60ch;
     padding: 0 1em 1em 1em;
     margin: 0 auto;
     font-style: italic;
@@ -396,9 +411,9 @@ h1 br {
 }
 
 /* Location map */
-#contact article:first-of-type p {
+#contact figcaption {
     text-align: right;
-    margin-right: 1em;
+    padding-right: 1em;
 }
 
 /* Contact details */
