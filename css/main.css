@@ -48,7 +48,7 @@
         margin: 0;
         padding: 0;
         line-height: 1.5;
-        font-size: var(--font-default);
+        /* font-size: var(--font-default); */
         font-family: Arial, Helvetica, sans-serif;
         font-weight: normal;
         /* font-size: 20px; */
@@ -112,6 +112,7 @@ section:nth-of-type(even){
     background-size: cover;
 }
 
+/* TODO not everything should be flex */
 section > * {
     flex: 0 0 100%;
 }
