@@ -1,5 +1,7 @@
 /* TODO Remove all borders */
 
+/* CSS is written for mobile first design */
+
 /* #region Common */
 
 :root {
@@ -17,7 +19,9 @@
 
 html {
     font-size: 16px;
-    scroll-padding-top: calc(17vw + 2rem);
+    /* This is required to offset the scroll when a
+    menu link is clicked dues to the fixed header */
+    scroll-padding-top: calc(7vw + 2rem);
 }
 
 /* Normalization is placed in the all selector as placing it
@@ -195,17 +199,10 @@ nav div {
     padding: 0.1rem 1.3rem;
 }
 
-/* This is required to offset the scroll when a
- menu link is clicked dues to the fixed header */
-html {
-
-    /* scroll-padding-top: calc(7vw + 10rem); */
-}
-
 /* Home logo link */
 nav div a {
     display: block;
-    width: calc(15vw + 6rem);
+    width: calc(12vw + 7rem);
     height: 100%;
 }
 
@@ -275,7 +272,8 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* link, visited, focus, hover, active */
+/* Link pseudo selectors must be in the order
+    link, visited, focus, hover, active*/
 
 nav ul li a:hover {
     background: var(--medium-blue);
@@ -297,7 +295,7 @@ nav ul.menu-open {
     position: fixed;
     right: 0;
     top: 0;
-    width: 15rem;
+    width: 12rem;
     z-index: 10;
 }
 
@@ -313,7 +311,6 @@ header {
     background-size: cover;
     border-bottom: 7rem solid #fff;
     z-index: 5;
-    /* margin-bottom: ; */
 }
 
 .js header {
@@ -390,6 +387,7 @@ header {
     width: 100%;
     margin-top: 0.5rem;
     padding: 0.25rem;
+    font-size: var(--font-size-default);
     border: 0.1rem solid var(--grey);
 }
 
@@ -413,6 +411,8 @@ header {
     border-radius: 2.5rem;
     color: #000;
     background-color: #fff;
+    font-size: var(--font-size-default);
+    font-weight: bold;
 }
 
 #contact article img {
@@ -422,7 +422,8 @@ header {
 /* Location map */
 #contact figcaption {
     text-align: right;
-    padding-right: 1rem;
+    padding-right: 3rem;
+    font-weight: normal;
 }
 
 /* Contact details */
@@ -455,10 +456,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
     width: 100%;
-    left: 0;
-    bottom: 0;
     color: #fff;
     background: var(--dark-blue);
     padding: 0.2rem 0;
@@ -473,94 +471,10 @@ footer p {
 
 /* #region Media queries */
 
-/* 600px 37.5em */
-/* @media all and (min-width: 600px) {
-
-    header {
-        height: 15em;
-        border: none;
-    }
-
-    h1 {
-        display: inline;
-        position: relative;
-        left: calc(30% - 9.5em);
-        top: 6em;
-        font-size: var(--font-size-default);
-        z-index: 25;
-    }
-
-    h1 br {
-        display: inline;
-    }
-
-    section {
-        margin: 0 auto;
-        padding: 0 10% 2em 10%;
-    }
-
-    #ourPeople figure {
-        flex: 0 0 calc(50%);
-        padding: 0.3em;
-    }
-
-    #ourPeople img:not(h2 *) {
-        border: none;
-    }
-
-    #contact fieldset {
-        padding: 1em 0;
-    }
-} */
-
 /* 800px 50em*/
 /* @media all and (min-width: 800px) {
 
-    #services figure {
-        display: flex;
-        align-items: center;
-        padding: 1.5em 0;
-    }
 
-    #services img:not(h2 *) {
-        width: 50%;
-        border: none;
-    }
-
-    #services figcaption {
-        display: inline;
-        margin-left: 1.5em;
-        background: none;
-    }
-
-    #services blockquote {
-        margin-top: 1em;
-    }
-
-    #ourPeople figure {
-        flex: 0 0 calc(33.3%);
-    }
-
-    #about {
-        align-items: center;
-    }
-
-    #about aside {
-        flex: 0 0 calc(50% - 2em);
-        margin-right: 2em;
-    }link
-
-    #about article {
-        flex: 0 0 calc(50%);
-    }
-
-    footer {
-        padding: 1em 0;
-    }
-
-    footer p {
-        font-size: var(--font-size-default);
-    }
 } */
 
 /* 320px */
@@ -568,8 +482,19 @@ footer p {
     html {
         font-size: calc(1rem + 6 * ((100vw - 20rem) / 680));
     }
+}
 
-    /* #skip-link:focus {
+/* 1000px */
+@media all and (min-width: 62.5rem) {
+
+        /* This is required to offset the scroll when a
+    menu link is clicked dues to the fixed header */
+    html {
+        scroll-padding-top: 6em;
+        font-size: 1.4rem;
+    }
+
+    #skip-link:focus {
         left: 25rem;
         top: 2rem;
     }
@@ -590,18 +515,14 @@ footer p {
         height: 6rem;
         background: #fff;
         z-index: 100;
-        padding: 0.1rem 1rem;
-    } */
-
-    /* This is required to offset the scroll when a
-    menu link is clicked dues to the fixed header */
-    html {
-        scroll-padding-top: 6em;
+        padding: 0.1rem 0.2rem 0.1rem 1rem
     }
-/*
+
+    /* Logo */
     nav div {
         display: block;
-        flex: 0 0 20rem;
+        /* flex: 0 0 15%; */
+        flex: 0 0 7.5rem;
         position: relative;
         height: 100%;
         padding: 0;
@@ -615,11 +536,12 @@ footer p {
     }
 
     nav ul {
+        flex: 0 0 35rem;
         display: flex;
         flex-wrap: nowrap;
         justify-content: flex-end;
         align-items: center;
-        width: 60%;
+        /* width: 75%; */
         margin: 0;
         background-color: white;
     }
@@ -648,7 +570,12 @@ footer p {
     header {
         margin-top: 4rem;
         height: 25rem;;
-    } */
+    }
+
+    header {
+        height: 15em;
+        border: none;
+    }
 
     h1 {
         /* left: calc(30% - 9rem);
@@ -659,17 +586,28 @@ footer p {
     h2 {
         /* font-size: var(--font-size-very-large); */
     }
-/*
+
+
+
+    h1 {
+        display: inline;
+        position: relative;
+        left: calc(30% - 9.5em);
+        top: 6em;
+        font-size: var(--font-size-default);
+        z-index: 25;
+    }
+
     h1 br {
         display: inline;
-    } */
-}
+    }
 
-/* 1000px */
-@media all and ((min-width: 62.5rem) {
-    html {
-        font-size: 1.4rem;
-      }
+    section {
+        margin: 0 auto;
+        padding: 0 10% 2em 10%;
+    }
+
+
 
     #services figure {
         flex: 0 0 calc(50% - 2rem);
@@ -677,9 +615,49 @@ footer p {
         padding: 0.3rem;
     }
 
+    #services figure {
+        display: flex;
+        align-items: center;
+        padding: 1.5em 0;
+    }
+
+    #services img:not(h2 *) {
+        width: 50%;
+        border: none;
+    }
+
+    #services figcaption {
+        display: inline;
+        margin-left: 1.5em;
+        background: none;
+    }
+
+    #services blockquote {
+        margin-top: 1em;
+    }
+
+    #ourPeople figure {
+        flex: 0 0 calc(33.3%);
+    }
+
+    #ourPeople figure {
+        flex: 0 0 calc(50%);
+        padding: 0.3em;
+    }
+
+
     #ourPeople figure {
         flex: 0 0 calc(25%);
     }
+
+
+    #ourPeople img:not(h2 *) {
+        border: none;
+    }
+
+
+
+
 
     #about aside {
         flex: 0 0 calc(30% - 2rem);
@@ -690,6 +668,23 @@ footer p {
     #about article {
         flex: 0 0 calc(60%);
         margin-right: auto;
+    }
+
+    #about {
+        align-items: center;
+    }
+
+    #about aside {
+        flex: 0 0 calc(50% - 2em);
+        margin-right: 2em;
+    }link
+
+    #about article {
+        flex: 0 0 calc(50%);
+    }
+
+    #contact fieldset {
+        padding: 1em 0;
     }
 
     #contact {
@@ -726,6 +721,26 @@ footer p {
     #contact article:last-of-type p,
     #contact article:last-of-type h4 {
         text-align: left;
+    }
+
+
+
+
+
+
+
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+
+    footer {
+        padding: 1em 0;
+    }
+
+    footer p {
+        font-size: var(--font-size-default);
     }
 }
 
