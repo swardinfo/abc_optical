@@ -2,41 +2,21 @@
 
 /* #region Common */
 
-
-
 :root {
     --light-background: #E7ECEF;
     --light-blue: #A3CEF1;
     --medium-blue: #6096BA;
     --grey: #8B8C89;
     --dark-blue: #274C77;
-    /* Define font size variables based on browser
-        defaults to maintain compatibility across devices.
-        Cite: https://css-tricks.com/accessible-font-sizing-explained/*/
-        /* font-size: 10px; */
-        font-size: 62.5%;
-    /* (62.5/100) * 16px = 10px */
-    --font-small: 1.4rem;
-     /* 14px */
-    --font-default: 1.6rem;
-     /* 16px */
-    --font-large: 2rem;
-     /* 20px */
-    --font-very-large: 2.4rem;
-     /* 24px */
-    --font-extra-large: 3rem;
-     /* 30px */
+    --font-size-small: 0.9rem;
+    --font-size-default: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-very-large: 1.5rem;
+    --font-size-extra-large: 1.9rem;
+}
 
-    /* --font-small: 0.7em; */
-     /* 14px */
-    /* --font-default: 0.8em; */
-     /* 16px */
-    /* --font-large: 1em; */
-     /* 20px */
-    /* --font-very-large: 1.2em; */
-     /* 24px */
-    /* --font-extra-large: 1.5em; */
-     /* 30px */
+html {
+    font-size: 16px;
 }
 
 /* Normalization is placed in the all selector as placing it
@@ -48,10 +28,8 @@
         margin: 0;
         padding: 0;
         line-height: 1.5;
-        /* font-size: var(--font-default); */
         font-family: Arial, Helvetica, sans-serif;
         font-weight: normal;
-        /* font-size: 20px; */
     }
 
 
@@ -579,8 +557,11 @@ footer p {
     }
 } */
 
-/* 1000px 62.5em */
-@media all and (min-width: 1000px) {
+/* 320px */
+@media all and (min-width: 20rem) {
+    html {
+        font-size: calc(1rem + 6 * ((100vw - 20rem) / 680));
+    }
 
     #skip-link:focus {
         left: 25rem;
@@ -678,8 +659,11 @@ footer p {
     }
 }
 
-/* 1200px 75em */
-@media all and (min-width: 1200px) {
+/* 1000px */
+@media all and ((min-width: 62.5rem) {
+    html {
+        font-size: 1.4rem;
+      }
 
     #services figure {
         flex: 0 0 calc(50% - 2rem);
