@@ -40,7 +40,7 @@ html {
 a {
     color: var(--dark-blue);
     text-decoration: none;
-    font-size: var(--font-large);
+    font-size: var(--font-size-default);
 }
 
 a:hover {
@@ -130,20 +130,21 @@ h1, h2 {
 
 h3, h4 {
     margin-bottom: 1rem;
-    font-size: var(--font-default);
+    font-size: var(--font-size-default);
 }
 
 h1 {
     position: relative;
     top: 27rem;
     width: 100%;
-    font-size: var(--font-very-large);
+    font-size: var(--font-size-extra-large);
+
     text-align: center;
 }
 
 h2 {
     margin: 1.5rem 0;
-    font-size: var(--font-large);
+    font-size: var(--font-size-very-large);
 }
 
 h4 {
@@ -201,7 +202,7 @@ html {
 /* Home logo link */
 nav div a {
     display: block;
-    width: calc(20vw + 9rem);
+    width: calc(15vw + 6rem);
     height: 100%;
 }
 
@@ -459,8 +460,8 @@ footer {
 }
 
 footer p {
-    /* font-size: var(--font-small); */
-    font-size: var(--font-default);
+    /* font-size: var(--font-size-small); */
+    font-size: var(--font-size-default);
 }
 
 /* #endregion Footer */
@@ -480,7 +481,7 @@ footer p {
         position: relative;
         left: calc(30% - 9.5em);
         top: 6em;
-        font-size: var(--font-default);
+        font-size: var(--font-size-default);
         z-index: 25;
     }
 
@@ -553,7 +554,7 @@ footer p {
     }
 
     footer p {
-        font-size: var(--font-default);
+        font-size: var(--font-size-default);
     }
 } */
 
@@ -563,7 +564,7 @@ footer p {
         font-size: calc(1rem + 6 * ((100vw - 20rem) / 680));
     }
 
-    #skip-link:focus {
+    /* #skip-link:focus {
         left: 25rem;
         top: 2rem;
     }
@@ -585,14 +586,14 @@ footer p {
         background: #fff;
         z-index: 100;
         padding: 0.1rem 1rem;
-    }
+    } */
 
     /* This is required to offset the scroll when a
     menu link is clicked dues to the fixed header */
     html {
         scroll-padding-top: 6em;
     }
-
+/*
     nav div {
         display: block;
         flex: 0 0 20rem;
@@ -642,21 +643,21 @@ footer p {
     header {
         margin-top: 4rem;
         height: 25rem;;
-    }
+    } */
 
     h1 {
-        left: calc(30% - 9rem);
-        top: 5rem;
-        font-size: var(--font-extra-large);
+        /* left: calc(30% - 9rem);
+        top: 5rem; */
+        /* font-size: var(--font-size-extra-large); */
     }
 
     h2 {
-        font-size: var(--font-very-large);
+        /* font-size: var(--font-size-very-large); */
     }
-
+/*
     h1 br {
         display: inline;
-    }
+    } */
 }
 
 /* 1000px */
