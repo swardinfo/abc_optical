@@ -441,6 +441,20 @@ header {
     background-color: var(--color-light-background);
 }
 
+#contact input:required:valid {
+    background-image: url(../images/tick-icon.svg);
+    background-size: 3%;
+    background-position: top 50% right 1%;
+    background-repeat: no-repeat;
+}
+
+#contact input:required:invalid, input:focus:invalid {
+    background-image: url(../images/cross-icon.svg);
+    background-size: 3%;
+    background-position: top 50% right 1%;
+    background-repeat: no-repeat;
+}
+
 /* #endregion Contact */
 
 /* #region Footer */
@@ -697,7 +711,6 @@ footer p {
     #contact article h3 {
         margin-top: 0;
     }
-
 }
 
 /* #endregion Media queries */
