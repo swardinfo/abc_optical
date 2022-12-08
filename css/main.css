@@ -5,11 +5,11 @@
 /* #region Common */
 
 :root {
-    --light-background: #E7ECEF;
-    --light-blue: #A3CEF1;
-    --medium-blue: #6096BA;
-    --grey: #8B8C89;
-    --dark-blue: #274C77;
+    --color-light-background: #E7ECEF;
+    --color-light-blue: #A3CEF1;
+    --color-medium-blue: #6096BA;
+    --color-grey: #8B8C89;
+    --color-dark-blue: #274C77;
     --font-size-small: 0.9rem;
     --font-size-default: 1rem;
     --font-size-large: 1.25rem;
@@ -20,12 +20,12 @@
 html {
     font-size: 16px;
     /* This is required to offset the scroll when a
-    menu link is clicked dues to the fixed header */
+    menu link is clicked dues to the fixed navigation header */
     scroll-padding-top: calc(7vw + 2rem);
 }
 
 /* Normalization is placed in the all selector as placing it
-    in the body selector odes not target all elements resulting
+    in the body selector does not target all elements resulting
     in an inconsistencies when developing a website */
     * {
         box-sizing: border-box;
@@ -34,22 +34,18 @@ html {
         padding: 0;
         line-height: 1.5;
         font-family: Arial, Helvetica, sans-serif;
+        font-size: var(--font-size-default);
         font-weight: normal;
     }
-
 
 /* Properties set here will be for all link states unless overridden
     later through pseudo selectors which must be in the order
     link, visited, focus, hover, active*/
 
 a {
-    color: var(--dark-blue);
+    color: var(--color-dark-blue);
     text-decoration: none;
     font-size: var(--font-size-default);
-}
-
-a:hover {
-    /* text-decoration: underline; */
 }
 
 /* Skip link - initial position off screen */
@@ -83,13 +79,12 @@ section {
     align-content: flex-start;
     min-height: 100vh;
     width: 100%;
+    padding-top: 2rem;
     overflow: hidden;
-    /* padding-top: calc(7vw + 2rem);
-    margin-top: calc(-1 * (7vw + 2rem)); */
 }
 
 section:nth-of-type(odd){
-    background: var(--light-blue);
+    background: var(--color-light-blue);
 }
 
 section:nth-of-type(even){
@@ -97,12 +92,7 @@ section:nth-of-type(even){
     background-size: cover;
 }
 
-/* TODO not everything should be flex */
-section > * {
-    flex: 0 0 100%;
-}
-
-section figure, #contact article {
+section figure, #contact > article:first-of-type {
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
@@ -122,8 +112,9 @@ section blockquote, #about article p {
     text-align: justify;
 }
 
-#services blockquote {
-    margin: 0 auto;
+
+section img:not(h2 *) {
+    display: block;
 }
 
 h1, h2, h3, h4, figcaption, legend{
@@ -132,7 +123,7 @@ h1, h2, h3, h4, figcaption, legend{
 
 h1, h2 {
     display: inline-block;
-    color: var(--dark-blue);
+    color: var(--color-dark-blue);
 }
 
 h3, h4 {
@@ -149,7 +140,7 @@ h1 {
 }
 
 h2 {
-    margin: 1.5rem 0;
+    margin-bottom: 1.5rem;
     font-size: var(--font-size-very-large);
 }
 
@@ -163,13 +154,9 @@ h2 img {
     height: 2rem;
 }
 
-section img:not(h2 *) {
-    display: block;
-}
-
 #services img:not(h2 *), #ourPeople img:not(h2 *) {
-    border-top: 0.05rem solid var(--grey);
-    border-bottom: 0.05rem solid var(--grey);
+    border-top: 0.05rem solid var(--color-grey);
+    border-bottom: 0.05rem solid var(--color-grey);
 }
 
 /* Services and Our People sections */
@@ -189,7 +176,6 @@ nav div {
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    /* align-content: center; */
     left: 0;
     top: 0;
     width: 100%;
@@ -215,7 +201,7 @@ nav div a:hover::after {
     top: -0.7rem;
     width: 100%;
     height: 0.1rem;
-    background: var(--dark-blue);
+    background: var(--color-dark-blue);
     z-index: 500;
 }
 
@@ -259,7 +245,7 @@ nav ul li {
     width: 100%;
     list-style-type: none;
     padding: 0.3rem;
-    background: var(--dark-blue);
+    background: var(--color-dark-blue);
 }
 
 nav ul li a {
@@ -276,11 +262,11 @@ nav ul li a {
     link, visited, focus, hover, active*/
 
 nav ul li a:hover {
-    background: var(--medium-blue);
+    background: var(--color-medium-blue);
 }
 
 nav ul li a:active {
-    color: var(--dark-blue);
+    color: var(--color-dark-blue);
     background: #fff;
 }
 
@@ -320,6 +306,10 @@ header {
 /* #endregion header */
 
 /* #region Services */
+
+#services blockquote {
+    margin: 0 auto;
+}
 
 #services p {
     margin-bottom: 1.5rem;
@@ -373,7 +363,7 @@ header {
 }
 
 #contact legend {
-    padding: 0 0.5rem;
+    margin-left: 1rem;
 }
 
 #contact label {
@@ -388,7 +378,7 @@ header {
     margin-top: 0.5rem;
     padding: 0.25rem;
     font-size: var(--font-size-default);
-    border: 0.1rem solid var(--grey);
+    border: 0.1rem solid var(--color-grey);
 }
 
 #contact input[type=checkbox] {
@@ -407,7 +397,7 @@ header {
     width: 10rem;
     height: 2.5rem;
     margin: 0 auto 0.75rem auto;
-    border: 0.15rem solid var(--grey);
+    border: 0.15rem solid var(--color-grey);
     border-radius: 2.5rem;
     color: #000;
     background-color: #fff;
@@ -427,25 +417,28 @@ header {
 }
 
 /* Contact details */
-#contact article:last-of-type {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 40rem;
+#contact > article:last-of-type {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
 }
 
-#contact article:last-of-type > * {
-    width: 100%;
+#contact > article:last-of-type > * {
+    display: block;
+}
+
+#contact article:last-of-type article > *{
+    text-align: left;
 }
 
 #contact article:first-of-type a {
-    color: var(--dark-blue);
+    color: var(--color-dark-blue);
     text-decoration: none;
-    box-shadow: 0 0.1rem 0 0 var(--dark-blue);
+    box-shadow: 0 0.1rem 0 0 var(--color-dark-blue);
 }
 
 #contact article:first-of-type a:hover {
-    background-color: var(--light-background);
+    background-color: var(--color-light-background);
 }
 
 /* #endregion Contact */
@@ -456,26 +449,19 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 4rem;
     width: 100%;
     color: #fff;
-    background: var(--dark-blue);
-    padding: 0.2rem 0;
+    background: var(--color-dark-blue);
 }
 
 footer p {
-    /* font-size: var(--font-size-small); */
     font-size: var(--font-size-default);
 }
 
 /* #endregion Footer */
 
 /* #region Media queries */
-
-/* 800px 50em*/
-/* @media all and (min-width: 800px) {
-
-
-} */
 
 /* 320px */
 @media all and (min-width: 20rem) {
@@ -490,7 +476,7 @@ footer p {
         /* This is required to offset the scroll when a
     menu link is clicked dues to the fixed header */
     html {
-        scroll-padding-top: 6em;
+        scroll-padding-top: 5rem;
         font-size: 1.4rem;
     }
 
@@ -512,7 +498,7 @@ footer p {
         left: 0;
         top: 0;
         width: 100%;
-        height: 6rem;
+        height: 5rem;
         background: #fff;
         z-index: 100;
         padding: 0.1rem 0.2rem 0.1rem 1rem
@@ -521,8 +507,7 @@ footer p {
     /* Logo */
     nav div {
         display: block;
-        /* flex: 0 0 15%; */
-        flex: 0 0 7.5rem;
+        flex: 0.3 0 7rem;
         position: relative;
         height: 100%;
         padding: 0;
@@ -536,12 +521,11 @@ footer p {
     }
 
     nav ul {
-        flex: 0 0 35rem;
+        flex: 0.2 0 35.5rem;
         display: flex;
         flex-wrap: nowrap;
         justify-content: flex-end;
         align-items: center;
-        /* width: 75%; */
         margin: 0;
         background-color: white;
     }
@@ -551,123 +535,80 @@ footer p {
     }
 
     nav ul li a {
-        color: var(--dark-blue);
+        color: var(--color-dark-blue);
         background: #fff;
         font-weight: bold;
     }
 
     nav ul li a:hover {
         color: #fff;
-        background: var(--dark-blue);
+        background: var(--color-dark-blue);
     }
 
 
     nav ul li a:active {
         color: #fff;
-        background: var(--medium-blue);
+        background: var(--color-medium-blue);
     }
 
     header {
-        margin-top: 4rem;
-        height: 25rem;;
-    }
-
-    header {
-        height: 15em;
+        margin-top: 5rem;
         border: none;
+        height: 15rem;
     }
-
-    h1 {
-        /* left: calc(30% - 9rem);
-        top: 5rem; */
-        /* font-size: var(--font-size-extra-large); */
-    }
-
-    h2 {
-        /* font-size: var(--font-size-very-large); */
-    }
-
-
 
     h1 {
         display: inline;
         position: relative;
-        left: calc(30% - 9.5em);
-        top: 6em;
-        font-size: var(--font-size-default);
+        left: calc(30% - 8.5em);
+        top: 3rem;
+        font-size: var(--font-size-very-large);
         z-index: 25;
-    }
-
-    h1 br {
-        display: inline;
     }
 
     section {
         margin: 0 auto;
-        padding: 0 10% 2em 10%;
+        padding: 3rem 10%;
     }
 
-
-
     #services figure {
-        flex: 0 0 calc(50% - 2rem);
-        margin: 0 2rem 2rem 0;
+        flex: 0 0 100%;
+        margin: 0;
         padding: 0.3rem;
-    }
-
-    #services figure {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        padding: 1.5em 0;
+        padding: 1.5rem 0;
     }
 
     #services img:not(h2 *) {
+        display: block;
         width: 50%;
         border: none;
     }
 
     #services figcaption {
-        display: inline;
-        margin-left: 1.5em;
+        width: calc(50% - 1.5rem);
+        display: block;
+        margin-left: 1.5rem;
         background: none;
     }
 
     #services blockquote {
-        margin-top: 1em;
+        margin-top: 1rem;
     }
 
-    #ourPeople figure {
-        flex: 0 0 calc(33.3%);
+    #ourPeople {
+        justify-content: flex-start;
     }
-
-    #ourPeople figure {
-        flex: 0 0 calc(50%);
-        padding: 0.3em;
-    }
-
 
     #ourPeople figure {
         flex: 0 0 calc(25%);
+        padding: 0.3rem;
     }
-
 
     #ourPeople img:not(h2 *) {
         border: none;
-    }
-
-
-
-
-
-    #about aside {
-        flex: 0 0 calc(30% - 2rem);
-        margin-left: auto;
-        margin-right: 2rem;
-    }
-
-    #about article {
-        flex: 0 0 calc(60%);
-        margin-right: auto;
     }
 
     #about {
@@ -675,73 +616,88 @@ footer p {
     }
 
     #about aside {
-        flex: 0 0 calc(50% - 2em);
-        margin-right: 2em;
-    }link
+        flex: 0 0 40%;
+        margin: 0;
+    }
 
     #about article {
-        flex: 0 0 calc(50%);
+        flex: 0 0 calc(60% - 2rem);
+        margin-left: 2rem;
+        max-width: 40ch;
+    }
+
+    /* Required to match fixed footer height */
+    #contact {
+        margin-bottom: 4rem;
     }
 
     #contact fieldset {
-        padding: 1em 0;
+        border: 1px solid var(--color-dark-blue);
+        border-radius: 1rem;
+        padding: 2rem;
+        max-width: 43rem;
+        margin: 0 auto;
     }
 
-    #contact {
-        justify-content: center;
-    }
-
-    #contact form, #contact article:first-of-type {
-        flex: 0 0 calc(40% - 4rem);
-    }
-
-    #contact form {
-        flex: 0 1.5 calc(40% - 4rem);
-    }
-
-    #contact article:last-of-type {
-        flex: 1 0 calc(20% - 4rem);
-    }
-
-    #contact hr {
+    #contact legend {
         margin: 0;
-        padding: 0;
-        flex: 0 0 0.1rem;
-        margin: 2rem;
+        padding: 0 1rem;
     }
 
-    #contact article h3 {
-        margin-top: 0;
+    #contact label {
+        max-width: 100%;
     }
-
-    #contact article:last-of-type {
-        align-content: flex-start;
-    }
-
-    #contact article:last-of-type p,
-    #contact article:last-of-type h4 {
-        text-align: left;
-    }
-
-
-
-
-
-
 
     footer {
         position: fixed;
         left: 0;
         bottom: 0;
     }
+}
 
-    footer {
-        padding: 1em 0;
+/* 1200px */
+@media all and (min-width: 75rem) {
+
+    #contact {
+        justify-content: center;
     }
 
-    footer p {
-        font-size: var(--font-size-default);
+    #contact form {
+        flex: 0 0 100%;
+        margin-bottom: 4rem;
     }
+
+    #contact article {
+        width: fit-content;
+        flex: 0 0 calc(50% - 2rem);
+    }
+
+    #contact article:first-of-type {
+        margin-right: 2rem;
+    }
+
+    /* Location map */
+    #contact article img {
+        width: 100%;
+        height: 25rem;
+        margin-top: 1rem;
+        object-fit: none;
+    }
+
+    /* Location map attribution */
+    #contact article figcaption {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    #contact hr {
+        display: none;
+    }
+
+    #contact article h3 {
+        margin-top: 0;
+    }
+
 }
 
 /* #endregion Media queries */
