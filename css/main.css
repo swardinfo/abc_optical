@@ -485,11 +485,6 @@ footer p {
         font-size: 1.4rem;
     }
 
-    #skip-link:focus {
-        left: 25rem;
-        top: 2rem;
-    }
-
     nav button {
         display: none;
     }
