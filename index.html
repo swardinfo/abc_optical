@@ -22,8 +22,9 @@
         <!-- #region Nav -->
         <nav role="navigation">
             <!-- Div required so that fixed heading can be styled without contents below scrolling
-                over it. Home logo link can't take up 100% width here as space is required
-                for skip link. A semantic tag would be wrong here as this is purely for styling. -->
+                over it. Using home logo link by itself would result in clickable area extending
+                across the width of the page. A semantic tag is not appropriate here as this is
+                purely for styling. -->
             <div>
                 <a href="index.html"><img src="./images/logo.svg" alt="logo"><p>Home</p></a>
                 <!-- Hamburger menu button, hidden unless both CSS and JavaScript present -->
@@ -256,12 +257,12 @@
                     </article>
                     <article>
                         <h4>Our trading hours:</h4>
-                        <p>
-                            Mon - Thurs: 9am - 5:30pm
-                            <br>Fri: 9am - 9pm
-                            <br>Sat: 9am - 5pm
-                            <br>Sun: 10am - 5pm
-                        </p>
+                        <ul>
+                            <li>Mon - Thurs: 9am - 5:30pm</li>
+                            <li>Fri: 9am - 9pm</li>
+                            <li>Sat: 9am - 5pm</li>
+                            <li>Sun: 10am - 5pm</li>
+                        </ul>
                     </article>
                 </article>
             </section>

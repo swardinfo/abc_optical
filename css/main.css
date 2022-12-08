@@ -34,7 +34,6 @@ html {
         padding: 0;
         line-height: 1.5;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: var(--font-size-default);
         font-weight: normal;
     }
 
@@ -48,15 +47,16 @@ a {
     font-size: var(--font-size-default);
 }
 
-/* Skip link - initial position off screen */
+/* Skip link - position absolute used to move link off screen when not in use */
 #skip-link {
-    display: block;
+    display: inline-block;
     position: absolute;
     left: -50rem;
     top: auto;
     width: 0.1rem;
     height: 0.1rem;
     z-index: -999;
+    border: 1px solid red;
 }
 
 #skip-link:focus {
@@ -99,7 +99,6 @@ section figure, #contact > article:first-of-type {
 }
 
 section *:not(form *) {
-    text-align: center;
     justify-content: center;
     width: 100%;
 }
@@ -114,7 +113,7 @@ section blockquote, #about article p {
 
 
 section img:not(h2 *) {
-    display: block;
+    display: inline-block;
 }
 
 h1, h2, h3, h4, figcaption, legend{
@@ -154,6 +153,10 @@ h2 img {
     height: 2rem;
 }
 
+li {
+    list-style-type: none;
+}
+
 #services img:not(h2 *), #ourPeople img:not(h2 *) {
     border-top: 0.05rem solid var(--color-grey);
     border-bottom: 0.05rem solid var(--color-grey);
@@ -161,7 +164,7 @@ h2 img {
 
 /* Services and Our People sections */
 section:nth-child(-n+2) figcaption {
-    display: block;
+    display: inline-block;
     padding: 1rem 1rem 2rem 1rem;
     background: #fff;
 }
@@ -187,22 +190,15 @@ nav div {
 
 /* Home logo link */
 nav div a {
-    display: block;
+    display: inline-block;
     width: calc(12vw + 7rem);
-    height: 100%;
+    padding: 0.5rem 0;
 }
 
 /* Home logo link hover underline */
-nav div a:hover::after {
-    display: block;
-    content: "";
-    position: relative;
-    left: 0;
-    top: -0.7rem;
-    width: 100%;
-    height: 0.1rem;
-    background: var(--color-dark-blue);
-    z-index: 500;
+nav div a:hover {
+    box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
+    max-width: 100%;
 }
 
 /* Logo */
@@ -223,7 +219,7 @@ nav div a p {
 /* Font size is 0 so as not to change focus area. This means
     width has to use rem for as em's has no reference */
 .js #menu-button {
-    display: block;
+    display: inline-block;
     position: relative;
     color: transparent;
     width: calc(7vw + 0.5rem);
@@ -243,16 +239,14 @@ nav ul {
 /* Nav link style when JavaScript unavailable */
 nav ul li {
     width: 100%;
-    list-style-type: none;
     padding: 0.3rem;
     background: var(--color-dark-blue);
 }
 
 nav ul li a {
-    display: block;
+    display: inline-block;
     color: #fff;
     text-align: center;
-    text-decoration: none;
     padding: 0.5rem;
     width: 100%;
     font-weight: bold;
@@ -277,7 +271,7 @@ nav ul li a:active {
 
 /* Menu opened by menu button when JavaScrip is loaded */
 nav ul.menu-open {
-    display: block;
+    display: inline-block;
     position: fixed;
     right: 0;
     top: 0;
@@ -343,7 +337,6 @@ header {
 
 #contact {
     padding-bottom: 4rem;
-    justify-content: center;
     align-content: center;
 }
 
@@ -373,7 +366,7 @@ header {
 }
 
 #contact input:not([type=checkbox]), #contact textarea {
-    display: block;
+    display: inline-block;
     width: 100%;
     margin-top: 0.5rem;
     padding: 0.25rem;
@@ -424,7 +417,7 @@ header {
 }
 
 #contact > article:last-of-type > * {
-    display: block;
+    display: inline-block;
 }
 
 #contact article:last-of-type article > *{
@@ -432,8 +425,6 @@ header {
 }
 
 #contact article:first-of-type a {
-    color: var(--color-dark-blue);
-    text-decoration: none;
     box-shadow: 0 0.1rem 0 0 var(--color-dark-blue);
 }
 
@@ -520,10 +511,11 @@ footer p {
 
     /* Logo */
     nav div {
-        display: block;
+        display: inline-block;
         flex: 0.3 0 7rem;
         position: relative;
-        height: 100%;
+        height: fit-content;
+        max-width: 12rem;
         padding: 0;
         margin: 0;
     }
@@ -531,6 +523,7 @@ footer p {
     nav div a {
         width: 100%;
         height: 100%;
+        align-self: center;
         z-index: 999;
     }
 
@@ -550,8 +543,6 @@ footer p {
 
     nav ul li a {
         color: var(--color-dark-blue);
-        background: #fff;
-        font-weight: bold;
     }
 
     nav ul li a:hover {
@@ -573,7 +564,6 @@ footer p {
 
     h1 {
         display: inline;
-        position: relative;
         left: calc(30% - 8.5em);
         top: 3rem;
         font-size: var(--font-size-very-large);
@@ -596,14 +586,12 @@ footer p {
     }
 
     #services img:not(h2 *) {
-        display: block;
         width: 50%;
         border: none;
     }
 
     #services figcaption {
         width: calc(50% - 1.5rem);
-        display: block;
         margin-left: 1.5rem;
         background: none;
     }
@@ -672,10 +660,6 @@ footer p {
 /* 1200px */
 @media all and (min-width: 75rem) {
 
-    #contact {
-        justify-content: center;
-    }
-
     #contact form {
         flex: 0 0 100%;
         margin-bottom: 4rem;
@@ -692,7 +676,6 @@ footer p {
 
     /* Location map */
     #contact article img {
-        width: 100%;
         height: 25rem;
         margin-top: 1rem;
         object-fit: none;
