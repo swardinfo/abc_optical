@@ -359,6 +359,10 @@ header {
     margin-left: 1rem;
 }
 
+#contact p {
+    margin-bottom: 1.5rem;
+}
+
 #contact label {
     display: block;
     max-width: 97%;
@@ -623,11 +627,6 @@ footer p {
         max-width: 40ch;
     }
 
-    /* Required to match fixed footer height */
-    #contact {
-        margin-bottom: 4rem;
-    }
-
     #contact fieldset {
         border: 1px solid var(--color-dark-blue);
         border-radius: 1rem;
@@ -643,12 +642,6 @@ footer p {
 
     #contact label {
         max-width: 100%;
-    }
-
-    footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
     }
 }
 
