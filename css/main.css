@@ -124,11 +124,13 @@ section *:not(form *) {
     width: 100%;
 }
 
-section blockquote, #about article {
+section blockquote,
+#about article {
     max-width: 60ch;
 }
 
-section blockquote, #about article p {
+section blockquote,
+#about article p {
     text-align: justify;
 }
 
@@ -137,16 +139,23 @@ section img:not(h2 *) {
     display: inline-block;
 }
 
-h1, h2, h3, h4, figcaption, legend{
+h1,
+h2,
+h3,
+h4,
+figcaption,
+legend{
     font-weight: bold;
 }
 
-h1, h2 {
+h1,
+h2 {
     display: inline-block;
     color: var(--color-dark-blue);
 }
 
-h3, h4 {
+h3,
+h4 {
     margin-bottom: 1rem;
 }
 
@@ -177,7 +186,8 @@ li {
     list-style-type: none;
 }
 
-#services img:not(h2 *), #ourPeople img:not(h2 *) {
+#services img:not(h2 *),
+#ourPeople img:not(h2 *) {
     border-top: 0.05rem solid var(--color-grey);
     border-bottom: 0.05rem solid var(--color-grey);
 }
@@ -369,7 +379,8 @@ header {
         align-content: center;
 }
 
-#contact form, #contact article{
+#contact form,
+#contact article{
     max-width: 100%;
 }
 
@@ -398,7 +409,8 @@ header {
     margin-bottom: 1.5rem;
 }
 
-#contact input:not([type=checkbox]), #contact textarea {
+#contact input:not([type=checkbox]),
+#contact textarea {
     display: inline-block;
     width: 100%;
     margin-top: 0.5rem;
@@ -480,7 +492,8 @@ header {
     background-repeat: no-repeat;
 }
 
-#contact input:required:invalid, input:focus:invalid {
+#contact input:required:invalid,
+input:focus:invalid {
     background-image: url(../images/cross-icon.svg);
     background-size: 3%;
     background-position: top 50% right 1%;
