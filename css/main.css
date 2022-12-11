@@ -41,6 +41,7 @@ html {
         line-height: 1.5;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: normal;
+        font-size: var(--font-size-default);
     }
 
 /* Properties set here will be for all link states unless overridden
@@ -50,7 +51,6 @@ html {
 a {
     color: var(--color-dark-blue);
     text-decoration: none;
-    font-size: var(--font-size-default);
 }
 
 /* Skip link - position absolute used to move link off screen when not in use */
@@ -148,7 +148,6 @@ h1, h2 {
 
 h3, h4 {
     margin-bottom: 1rem;
-    font-size: var(--font-size-default);
 }
 
 h1 {
@@ -404,7 +403,6 @@ header {
     width: 100%;
     margin-top: 0.5rem;
     padding: 0.25rem;
-    font-size: var(--font-size-default);
     border: 0.1rem solid var(--color-grey);
 }
 
@@ -430,7 +428,6 @@ header {
     border-radius: 2.5rem;
     color: #000;
     background-color: #fff;
-    font-size: var(--font-size-default);
     font-weight: bold;
 }
 
@@ -510,16 +507,13 @@ footer {
     background: var(--color-dark-blue);
 }
 
-footer p {
-    font-size: var(--font-size-default);
-}
-
 /* #endregion Footer */
 
 /* #region Media queries */
 
 /* 320px */
 @media all and (min-width: 20rem) {
+
     html {
         font-size: calc(1rem + 6 * ((100vw - 20rem) / 680));
     }
