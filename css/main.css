@@ -187,7 +187,7 @@ li {
 }
 
 #services img:not(h2 *),
-#ourPeople img:not(h2 *) {
+#our-people img:not(h2 *) {
     border-top: 0.05rem solid var(--color-grey);
     border-bottom: 0.05rem solid var(--color-grey);
 }
@@ -682,20 +682,20 @@ footer {
         margin-top: 1rem;
     }
 
-    #ourPeople {
+    #our-people {
         -webkit-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
     }
 
-    #ourPeople figure {
+    #our-people figure {
         -webkit-box-flex: 0;
             -ms-flex: 0 0 calc(25%);
                 flex: 0 0 calc(25%);
         padding: 0.3rem;
     }
 
-    #ourPeople img:not(h2 *) {
+    #our-people img:not(h2 *) {
         border: none;
     }
 
