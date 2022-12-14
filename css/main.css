@@ -488,7 +488,7 @@ footer {
         /* This is required to offset the scroll when a
     menu link is clicked dues to the fixed header */
     html {
-        scroll-padding-top: 5rem;
+        scroll-padding-top: 4.8rem;
         font-size: 1.4rem;
     }
 
