@@ -71,13 +71,13 @@ a {
 section {
     display: flex;
     flex-flow: row wrap;
-    text-align: center;
     justify-content: center;
     align-content: flex-start;
+    overflow: hidden;
     width: 100%;
     min-height: 100vh;
     padding-top: 2rem;
-    overflow: hidden;
+    text-align: center;
 }
 
 section:nth-of-type(odd){
@@ -203,8 +203,8 @@ header nav:first-of-type a {
 
 /* Home logo link hover underline */
 header nav:first-of-type a:hover {
-    box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
     max-width: 100%;
+    box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
 }
 
 /* Logo */
@@ -288,7 +288,6 @@ nav ul.menu-open {
 }
 
 header > img {
-    height: 9rem;
     height: 40vw;
     width: 100%;
     object-fit: cover;
@@ -506,17 +505,16 @@ footer {
     nav ul {
         flex: 0.2 0 35.5rem;
         display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
         position: fixed;
         right: 0;
         top: 0;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-items: center;
-        justify-content: space-between;
+        height: 4.9rem;
         margin: 0;
         background-color: white;
         z-index: 50;
-        height: 4.9rem;
     }
 
     nav ul li {
@@ -658,7 +656,6 @@ footer {
     #contact article img {
         height: 25rem;
         margin-top: 1rem;
-        -o-object-fit: none;
         object-fit: none;
     }
 
