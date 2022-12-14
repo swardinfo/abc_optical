@@ -160,7 +160,7 @@ h4 {
 
 h1 {
     position: relative;
-    top: 15.5rem;
+    top: 0;
     width: 100%;
     font-size: var(--font-size-extra-large);
     text-align: center;
@@ -200,9 +200,10 @@ section:nth-child(-n+2) figcaption {
 
 /* #endregion Common */
 
-/* #region Nav */
+/* #region Header */
 
-nav div {
+/* Fixed navigation banner */
+header nav:first-of-type {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -225,21 +226,21 @@ nav div {
 }
 
 /* Home logo link */
-nav div a {
+header nav:first-of-type a {
     display: inline-block;
-    width: calc(12vw + 7rem);
+    width: calc(7vw + 8rem);
     padding: 0.5rem 0;
 }
 
 /* Home logo link hover underline */
-nav div a:hover {
+header nav:first-of-type a:hover {
     -webkit-box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
     box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
     max-width: 100%;
 }
 
 /* Logo */
-nav div a img {
+header nav:first-of-type img {
     display: block;
     width: 100%;
     height: 100%;
@@ -247,7 +248,7 @@ nav div a img {
 
 /* Font size set to 0 so as not to change focus ring */
 /* Make 'Home' text invisible but still accessible to screen readers */
-nav div a p {
+header nav:first-of-type a p {
     font-size: 0;
     color: transparent;
 }
@@ -269,6 +270,8 @@ nav div a p {
     z-index: 70;
 }
 
+/* Set primary nav margin to same height as
+    fixed nav banner so it doesn't overlap */
 nav ul {
     margin-top: calc(7vw + 2rem);
 }
@@ -316,25 +319,22 @@ nav ul.menu-open {
     z-index: 20;
 }
 
-/* #endregion Nav */
-
-/* #region Header */
-
-header {
-    background-image: url(../images/header-background-image.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 22rem;
-    border-bottom: 7rem solid #fff;
+header > img {
+    height: 9rem;
+    height: 40vw;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
     z-index: 10;
 }
 
-.js header {
+/* When javascript available, set header image margin to
+     same size as fixed banner so it doesn't overlap */
+.js header > img {
     margin-top: calc(7vw + 2rem);
 }
 
-/* #endregion header */
+/* #endregion Header */
 
 /* #region Services */
 
@@ -541,56 +541,12 @@ footer {
         font-size: 1.4rem;
     }
 
-    nav button {
+    /* Hide menu button on desktop */
+    header button {
         display: none;
     }
 
-    nav {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        position: fixed;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 5rem;
-        padding: 0.1rem 0.2rem 0.1rem 1rem;
-        background: #fff;
-        z-index: 40;
-    }
-
-    /* Logo */
-    nav div {
-        display: inline-block;
-        -webkit-box-flex: 0.3;
-        -ms-flex: 0.3 0 7rem;
-        flex: 0.3 0 7rem;
-        position: relative;
-        max-width: 12rem;
-        height: -webkit-fit-content;
-        height: -moz-fit-content;
-        height: fit-content;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav div a {
-        width: 100%;
-        height: 100%;
-        -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-        z-index: 60;
-    }
-
+    /* Primary navigation */
     nav ul {
         -webkit-box-flex: 0.2;
         -ms-flex: 0.2 0 35.5rem;
@@ -598,6 +554,9 @@ footer {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        position: fixed;
+        right: 0;
+        top: 0;
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
         -webkit-box-pack: end;
@@ -606,11 +565,15 @@ footer {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+        justify-content: space-between;
         margin: 0;
         background-color: white;
+        z-index: 50;
+        height: calc(7vw + 2rem);
     }
 
     nav ul li {
+        width: fit-content;
         background: #fff;
     }
 
@@ -629,8 +592,8 @@ footer {
         background: var(--color-medium-blue);
     }
 
-    header {
-        height: 15rem;
+    header > img {
+        height: 18rem;
         margin-top: 5rem;
         border: none;
     }
@@ -638,9 +601,13 @@ footer {
     h1 {
         display: inline;
         left: calc(30% - 8.5em);
-        top: 3rem;
+        top: -13.5rem;
         font-size: var(--font-size-very-large);
         z-index: 30;
+    }
+
+    header {
+        margin-bottom: -5rem;
     }
 
     section {
@@ -738,6 +705,10 @@ footer {
 
 /* 1200px */
 @media all and (min-width: 75rem) {
+
+    nav ul li {
+        width: 8rem;
+    }
 
     #contact form {
         -webkit-box-flex: 0;

@@ -22,32 +22,26 @@
         <!-- Skip link to main section for accessibility -->
         <a href="#main" id="skip-link">Skip to content</a>
 
-        <!-- #region Nav -->
-        <nav>
-            <!-- Div required so that fixed heading can be styled without contents below scrolling
-                over it. Using home logo link by itself would result in clickable area extending
-                across the width of the page. A semantic tag is not appropriate here as this is
-                purely for styling. -->
-            <div>
+        <!-- #region Header -->
+        <!-- Image background -->
+        <header>
+            <nav aria-label="home">
                 <a href="index.html"><img src="./images/logo.png" alt="abc optical logo"><p>Home</p></a>
                 <!-- Hamburger menu button, hidden unless both CSS and JavaScript present -->
                 <button id="menu-button" hidden aria-disabled="true" aria-expanded="false"
                 aria-controls="menu">Menu</button>
-            </div>
-            <ul id="menu">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#our-people">Our people</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <!-- #endregion Nav -->
-
-        <!-- #region Header -->
-        <!-- Image background -->
-        <header>
-            <!-- The background image for the header is applied through CSS -->
+            </nav>
+            <nav aria-label="primary">
+                <!-- id=menu required as variable for javascript  -->
+                <ul id="menu">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#our-people">Our people</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <img src="./images/header-background-image.jpg" alt="Woman wearing glasses">
             <h1>ABC Optical<br>Your family optician</h1>
         </header>
         <!-- #endregion Header -->
@@ -241,7 +235,7 @@
                 <article>
                     <h3>Find us on the map</h3>
                     <figure>
-                        <img src="./images/location-map.jpg" alt="a map showing location of the store">
+                        <img src="./images/location-map.jpg" alt="a map showing location of the ABC Optical store">
                         <!-- Required by Open Street Map, attribution and link to license -->
                         <figcaption>Map data from
                             <a href="https://www.openstreetmap.org/copyright"
