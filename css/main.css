@@ -492,6 +492,11 @@ footer {
         font-size: 1.4rem;
     }
 
+    /* Fixed navigation banner */
+    header nav:first-of-type {
+        height: 4.9rem;
+    }
+
     /* Hide menu button on desktop */
     header button {
         display: none;
@@ -511,7 +516,7 @@ footer {
         margin: 0;
         background-color: white;
         z-index: 50;
-        height: calc(7vw + 2rem);
+        height: 4.9rem;
     }
 
     nav ul li {
@@ -528,10 +533,14 @@ footer {
         background: var(--color-dark-blue);
     }
 
-
     nav ul li a:active {
         color: #fff;
         background: var(--color-medium-blue);
+    }
+
+    /* Remove white space when h1 moved over header image */
+    header {
+        margin-bottom: -5rem;
     }
 
     header > img {
@@ -540,16 +549,13 @@ footer {
         border: none;
     }
 
+    /* Move h1 over header image */
     h1 {
         display: inline;
         left: calc(30% - 8.5em);
         top: -13.5rem;
         font-size: var(--font-size-very-large);
         z-index: 30;
-    }
-
-    header {
-        margin-bottom: -5rem;
     }
 
     section {
