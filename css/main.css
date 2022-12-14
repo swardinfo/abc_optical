@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* CSS is written for mobile first design */
 
 /* #region Common */
@@ -26,7 +33,8 @@ html {
     in the body selector does not target all elements resulting
     in an inconsistencies when developing a website */
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     float: none;
     padding: 0;
     margin: 0;
@@ -69,10 +77,18 @@ a {
 }
 
 section {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
     overflow: hidden;
     width: 100%;
     min-height: 100vh;
@@ -90,13 +106,21 @@ section:nth-of-type(even){
 }
 
 section figure, #contact > article:first-of-type {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
 }
 
 section *:not(form *) {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
 }
 
@@ -180,10 +204,17 @@ section:nth-child(-n+2) figcaption {
 
 /* Fixed navigation banner */
 header nav:first-of-type {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: fixed;
     left: 0;
     top: 0;
@@ -204,7 +235,8 @@ header nav:first-of-type a {
 /* Home logo link hover underline */
 header nav:first-of-type a:hover {
     max-width: 100%;
-    box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
+    -webkit-box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
+            box-shadow: 0 0.05rem 0 0 var(--color-dark-blue);
 }
 
 /* Logo */
@@ -290,8 +322,10 @@ nav ul.menu-open {
 header > img {
     height: 40vw;
     width: 100%;
-    object-fit: cover;
-    object-position: 50% 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 50% 50%;
+       object-position: 50% 50%;
     z-index: 10;
 }
 
@@ -340,7 +374,8 @@ header > img {
 /* #region Contact */
 
 #contact {
-    align-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
     padding-bottom: 4rem;
 }
 
@@ -385,7 +420,9 @@ header > img {
 
 #contact input[type=checkbox] {
     margin: 0 0.5rem;
-    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+        -ms-transform: scale(1.4);
+            transform: scale(1.4);
 }
 
 #contact textarea {
@@ -419,9 +456,16 @@ header > img {
 
 /* Contact details */
 #contact > article:last-of-type {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto;
     grid-template-columns: auto;;
+    -ms-grid-rows: auto;;
     grid-template-rows: auto;
+}
+#contact > article:last-of-type > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
 }
 
 #contact > article:last-of-type > * {
@@ -433,7 +477,8 @@ header > img {
 }
 
 #contact article:first-of-type a {
-    box-shadow: 0 0.1rem 0 0 var(--color-dark-blue);
+    -webkit-box-shadow: 0 0.1rem 0 0 var(--color-dark-blue);
+            box-shadow: 0 0.1rem 0 0 var(--color-dark-blue);
 }
 
 #contact article:first-of-type a:hover {
@@ -460,9 +505,15 @@ input:focus:invalid {
 /* #region Footer */
 
 footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     height: 4rem;
     color: #fff;
@@ -503,11 +554,20 @@ footer {
 
     /* Primary navigation */
     nav ul {
-        flex: 0.2 0 35.5rem;
+        -webkit-box-flex: 0.2;
+            -ms-flex: 0.2 0 35.5rem;
+                flex: 0.2 0 35.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         position: fixed;
         right: 0;
         top: 0;
@@ -518,6 +578,8 @@ footer {
     }
 
     nav ul li {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
         background: #fff;
     }
@@ -562,10 +624,18 @@ footer {
     }
 
     #services figure {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex: 0 0 100%;
-        justify-content: space-between;
-        align-items: center;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding: 1.5rem 0;
         margin: 0;
     }
@@ -586,11 +656,15 @@ footer {
     }
 
     #our-people {
-        justify-content: flex-start;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
     }
 
     #our-people figure {
-        flex: 0 0 calc(25%);
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 calc(25%);
+                flex: 0 0 calc(25%);
         padding: 0.3rem;
     }
 
@@ -599,16 +673,22 @@ footer {
     }
 
     #about {
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     #about aside {
-        flex: 0 0 40%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 40%;
+                flex: 0 0 40%;
         margin: 0;
     }
 
     #about article {
-        flex: 0 0 calc(60% - 2rem);
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 calc(60% - 2rem);
+                flex: 0 0 calc(60% - 2rem);
         max-width: 40ch;
         margin-left: 2rem;
     }
@@ -639,13 +719,19 @@ footer {
     }
 
     #contact form {
-        flex: 0 0 100%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
         margin-bottom: 4rem;
     }
 
     #contact article {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
-        flex: 0 0 calc(50% - 2rem);
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 calc(50% - 2rem);
+                flex: 0 0 calc(50% - 2rem);
     }
 
     #contact article:first-of-type {
@@ -656,7 +742,8 @@ footer {
     #contact article img {
         height: 25rem;
         margin-top: 1rem;
-        object-fit: none;
+        -o-object-fit: none;
+           object-fit: none;
     }
 
     /* Location map attribution */
