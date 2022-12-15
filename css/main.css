@@ -527,6 +527,8 @@ footer {
 /* 320px */
 @media all and (min-width: 20rem) {
 
+    /* Chris Coyier 2019 Simplified Fluid Typography CSS-Tricks
+    URL [https://css-tricks.com/simplified-fluid-typography] Accessed 14/12/2022 */
     html {
         font-size: calc(1rem + 6 * ((100vw - 20rem) / 680));
     }
