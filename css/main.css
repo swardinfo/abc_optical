@@ -262,7 +262,7 @@ header nav:first-of-type a p {
     width: calc(7vw + 0.5rem);
     height: calc(7vw + 0.5rem);
     overflow: hidden;
-    background: url("../images/menu.svg");
+    background: url("../images/menu-icon.svg");
     background-size: cover;
     border: none;
     color: transparent;
